@@ -1,0 +1,23 @@
+{
+	"name": "react-popover-control",
+	"version": "0.0.1",
+	"description": "A popover control for React.js",
+	"keywords": [
+		"react",
+		"popover",
+		"actionsheet",
+		"tooltip",
+		"dropdown"
+	],
+	"main": "index.js",
+	"files": [
+		"lib/",
+		"LICENSE"
+	],
+	"dependencies": {
+		"classnames": "^2.1.0"	
+	},
+	"peerDependencies": {
+		"react": "^0.13.2"
+	}
+}
