@@ -1,1 +1,1 @@
-module.exports = require("./src/popover");
+module.exports = require("./lib/popover.js");
