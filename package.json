@@ -21,7 +21,8 @@
     "LICENSE"
   ],
   "dependencies": {
-    "classnames": "^2.1.0"
+    "classnames": "^2.1.0",
+    "lodash": "^3.8.0"
   },
   "peerDependencies": {
     "react": "^0.13.2"

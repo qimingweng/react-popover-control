@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import classNames from "classnames";
+import _ from "lodash";
 let PureRenderMixin = require("react/addons").addons.PureRenderMixin;
 
 let PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
@@ -8,7 +9,7 @@ let PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
 }));
 
 /*
-	Some terminology
+	Some terminologyf
 	target: the button that, when clicked, opens the list
 	list: a list of actions which are normally hidden
 */
