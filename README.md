@@ -1,7 +1,51 @@
 # react-popover-control
 A popover control for React.js
 
-What is a popover control?
+## This project is very new
+
+Until I hit version `0.1.0`, expect there to be lots of breaking changes. If you're curious, I encourage you to look at the code, it's not very complex, so perhaps use it as inspiration for your own component if you need it to work exactly the way you want. I'm building customizability as I go.
+
+## Download
+
+To quickly download this project, use npm. `npm install react-popover-control`
+
+## Usage
+
+```javascript
+import PopoverControl from "react-popover-control";
+
+let SomeComponent = React.createClass({
+  render() {
+    let actions = [
+      {
+        title: "Edit",
+        func: function() {...}
+      },
+      {
+        title: "Delete",
+        func: function() {...}
+      },
+      {
+        title: "Change the World",
+        func: function() {...}
+      }
+    ];
+
+    return (
+      <div>
+        <PopoverControl actions={actions}/>
+      </div>
+    )
+  }
+});
+
+...
+
+```
+
+(Does this look weird if you're developing for web? Well that's because it's in ES6 and I use browserify and babel to compile and bundle it all up. They are cool tools)
+
+# What is a popover control?
 
 You click a (...) and then a list of actionable items show up.
 
