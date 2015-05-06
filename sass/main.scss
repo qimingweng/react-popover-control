@@ -1,0 +1,48 @@
+@import "reset";
+@import "functions";
+
+body {
+	background-color: gray(0.85);
+	font-family: HelveticaNeue, Arial, "sans-serif";
+}
+
+.popover-control {
+	position: relative;
+
+	.popover-control-button {
+		@include no-selection();
+		display: block;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		font-size: 20px;
+		text-align: center;
+		background-color: gray(0.95);
+
+		&:hover {
+			text-decoration: none;
+			background-color: gray(0.80);
+		}
+	}
+
+	.popover-list {
+		background-color: white;
+		min-width: 150px;
+		overflow: hidden;
+		border: 1px solid gray(0.75);
+		box-shadow: 0px 1px 10px gray(0.90);
+		@include border-radius(5px);
+
+		a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 10px;
+
+			&:hover {
+				text-decoration: none;
+				background-color: #e6eff7;
+			}
+		}
+	}
+}
