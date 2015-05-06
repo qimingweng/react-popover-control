@@ -9,5 +9,5 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks("grunt-babel");
-  grunt.registerTask("compile", ["babel"]);
+  grunt.registerTask("publish", ["babel"]);
 };
