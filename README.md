@@ -1,5 +1,5 @@
-# react-popover-control
-A popover control for React.js
+# React Popover Control
+A popover control for React.js, [see it in action](http://qimingweng.github.io/react-popover-control/).
 
 ## This project is very new
 
