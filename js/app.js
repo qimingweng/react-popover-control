@@ -16,11 +16,13 @@ const App = React.createClass({
 		
 	},
 	render() {
+		let actions = [];
+
 		return (
 			<div>
 				<h1>React Popover Control</h1>
-				<div class="post-area">
-					<PopoverControl/>
+				<div className="post-area">
+					<PopoverControl actions={actions}/>
 				</div>
 			</div>
 		)
