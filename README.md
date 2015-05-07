@@ -3,7 +3,7 @@ A popover control for React.js, [see it in action](http://qimingweng.github.io/r
 
 ## This project is very new
 
-Until I hit version `0.1.0`, expect there to be lots of breaking changes. If you're curious, I encourage you to look at the code, it's not very complex, so perhaps use it as inspiration for your own component if you need it to work exactly the way you want. I'm building customizability as I go.
+Until version `0.1.0`, expect there to be lots of breaking changes. If you're curious, I encourage you to look at the code, it's not very complex, so perhaps use it as inspiration for your own component if you need it to work exactly the way you want. I'm building customizability as I go.
 
 ## Download
 
@@ -45,9 +45,13 @@ let SomeComponent = React.createClass({
 
 (Does this look weird if you're developing for web? Well that's because it's in ES6 and I use browserify and babel to compile and bundle it all up. They are cool tools)
 
+## Help
+
+If something's wrong or if you have a question, tweet me [@qiming](https://twitter.com/qiming)
+
 # What is a popover control?
 
-You click a (...) and then a list of actionable items show up.
+Basically, click a button and then a list of actionable items show up.
 
 I could not find a good popover control resource or a good tutorial on how to write a (good) popover control.
 

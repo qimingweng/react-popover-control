@@ -9,7 +9,7 @@ let PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
 }));
 
 /*
-  Some terminologyf
+  Some terminology
   target: the button that, when clicked, opens the list
   list: a list of actions which are normally hidden
 */
@@ -49,8 +49,12 @@ const PopoverControl = React.createClass({
     });
   },
   render() {
+    let popoverControlStyle = {
+      position: "relative"
+    }
+
     return (
-      <div className="popover-control" height={this.props.height}>
+      <div className="popover-control" height={this.props.height} style={popoverControlStyle}>
         <a className="popover-control-button" ref="self" onClick={this.onClick}>
           {/* using font awesome here, will think about introducing flexibility at the interface level */}
           <span className="fa fa-angle-down"/>
@@ -90,7 +94,7 @@ const PopoverList = React.createClass({
     }
   },
   componentDidMount() {
-    // debounce the onScroll event
+    // Debounce the onScroll event, so that render isn't called too many ties
     this.onScroll = _.debounce(this.onScroll, 50);
 
     // This is cool, the 3rd argument true capture scroll events at capture (before it bubbles)
@@ -115,6 +119,7 @@ const PopoverList = React.createClass({
     document.removeEventListener("click", this.onDocumentClick);
   },
   onScroll(event) {
+    // When either the scroll position has changed, or the window has resized, check the bounds of the list and possibly reposition it
     this.positionSizeRelativeToWindow();
   },
   positionSizeRelativeToWindow() {
