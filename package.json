@@ -33,5 +33,6 @@
   },
   "scripts": {
     "prepublish": "grunt publish"
-  }
+  },
+  "license": "MIT"
 }
