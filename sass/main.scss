@@ -34,11 +34,13 @@ a:hover {
 		margin-bottom: 0px;
 	}
 
-	.popover-control {
+	.popover-position-wrap {
 		position: absolute;
 		right: 0px;
 		bottom: 0px;
-		
+	}
+
+	.popover-control {
 		.popover-control-button {
 			border-bottom-right-radius: 5px;
 		}

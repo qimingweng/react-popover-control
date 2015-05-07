@@ -48,12 +48,12 @@ a:hover {
   border-radius: 5px; }
   .post-view:last-child {
     margin-bottom: 0px; }
-  .post-view .popover-control {
+  .post-view .popover-position-wrap {
     position: absolute;
     right: 0px;
     bottom: 0px; }
-    .post-view .popover-control .popover-control-button {
-      border-bottom-right-radius: 5px; }
+  .post-view .popover-control .popover-control-button {
+    border-bottom-right-radius: 5px; }
 
 .popover-control {
   position: relative; }
