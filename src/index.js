@@ -1,7 +1,6 @@
 import React, {PropTypes} from "react";
 import classNames from "classnames";
 import _ from "lodash";
-let PureRenderMixin = require("react/addons").addons.PureRenderMixin;
 
 let PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
   title: PropTypes.string.isRequired,
@@ -72,7 +71,6 @@ const PopoverControl = React.createClass({
 });
 
 const PopoverList = React.createClass({
-  mixins: [PureRenderMixin],
   propTypes: {
     actions: PopoverActionsType.isRequired,
     delegate: PropTypes.shape({
