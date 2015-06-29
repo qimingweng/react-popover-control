@@ -1,4 +1,5 @@
 {
+  "description": "A simple, idiomatic popover control for React",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --progress"
   },

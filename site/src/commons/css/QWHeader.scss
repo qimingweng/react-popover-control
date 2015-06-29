@@ -1,0 +1,35 @@
+#QWHeader {
+	background: linear-gradient(to bottom, #4B78CD 0%, #65C2E7 100%);
+	padding: 100px 0px;
+	text-align: center;
+	color: white;
+
+	$std: 20px;
+
+	h1 {
+		font-size: 30px;
+		font-weight: 400;
+		margin-bottom: $std;
+	}
+
+	h2 {
+		font-size: 22px;
+		font-weight: 400;
+		opacity: 0.7;
+		margin-bottom: $std;
+	}
+
+	a {
+		display: inline-block;
+		box-sizing: border-box;
+		height: 40px;
+		line-height: 40px;
+		padding: 0px 20px;
+		border: 1px solid white;
+		border-radius: 5px;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+	}
+}

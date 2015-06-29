@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import Router, {Route} from 'react-router';
 import routes from './routes';
 
+require('../css/reset.scss');
+
 export default function(path, props, done) {
 	Router.run(routes, path, Handler => {
 		done(

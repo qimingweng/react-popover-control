@@ -2,6 +2,8 @@
 import React, {PropTypes} from 'react';
 import {RouteHandler} from 'react-router';
 
+require('../../css/RootPage.scss');
+
 export default class RootPage extends React.Component {
 	static contextTypes = {
 		router: PropTypes.func
@@ -14,7 +16,7 @@ export default class RootPage extends React.Component {
 		return (
 			<html>
 				<head>
-					<title>Title</title>
+					<title>React Popover Control</title>
 					<link rel="stylesheet" href="/style.css"/>
 
 					<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
