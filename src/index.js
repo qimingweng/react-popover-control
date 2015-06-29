@@ -13,43 +13,33 @@ let PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
   list: a list of actions which are normally hidden
 */
 
-const PopoverControl = React.createClass({
-  propTypes: {
-    actions: PopoverActionsType.isRequired,
-    /// In pixels, the offset between the target and the list (in the y direction), including the height of the target itself
-    offsetY: PropTypes.number.isRequired
-  },
-  getDefaultProps() {
-    return {
-      offsetY: 5
-    }
-  },
-  getInitialState() {
-    return {
-      // Must be initialized with false
-      isPopped: false
-    }
-  },
-  shouldHidePopover(event) {
+class PopoverControl extends React.Component {
+  static propTypes = {
+    actions: PopoverActionsType.isRequired
+  }
+  state = {
+    isPopped: false
+  }
+  shouldHidePopover = (event) => {
     // @PopoverListDelegate
     this.setState({
       isPopped: false
     });
-  },
-  getPopoverReferenceFrame() {
+  }
+  getPopoverReferenceFrame = () => {
     // @PopoverListDelegate
     let node = React.findDOMNode(this.refs.self);
     return node.getBoundingClientRect();
     // @return {top: Number, left: Number}
-  },
-  onClick() {
+  }
+  onClick = () => {
     this.setState({
       isPopped: !this.state.isPopped
     });
-  },
+  }
   render() {
     let popoverControlStyle = {
-      position: "relative"
+      position: 'relative'
     }
 
     return (
@@ -68,7 +58,7 @@ const PopoverControl = React.createClass({
       </div>
     )
   }
-});
+}
 
 const PopoverList = React.createClass({
   propTypes: {
