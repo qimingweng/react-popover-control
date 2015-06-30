@@ -32,7 +32,8 @@ export default class HomePage extends React.Component {
 			<div id="home-page">
 				<QWHeader 
 					name="React Popover Control"
-					description="A simple, idiomatic popover control for React"/>
+					description="A simple, idiomatic popover control for React"
+					github="https://github.com/qimingweng/react-popover-control"/>
 
 				<div id="main">
 					<QWContainer>

@@ -1,9 +1,8 @@
-# A good popover...
+# Download
 
-- Flips when it is too low on screen
-- Nudges left when it is too far right on screen
-- Responds to clicks outside of its bounds
-- Responds to keyboard shortcuts like ESC
+```bash
+npm install react-popover-control
+```
 
 # Usage
 
@@ -35,3 +34,17 @@ class Page extends React.Component {
   }
 }
 ```
+
+# A good popover...
+
+- Flips when it is too low on screen
+- Nudges left when it is too far right on screen
+- Responds to clicks outside of its bounds
+- Responds to keyboard shortcuts like ESC
+
+# Things still missing
+
+- Arrow key control
+- Scrolling when there are too many items
+- Using keyboard letters as shortcuts to certain fields
+- Filtering items with an input field

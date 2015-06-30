@@ -6,16 +6,21 @@ require('../css/QWHeader.scss');
 export default class QWHeader extends React.Component {
 	static propTypes = {
 		name: PropTypes.string,
-		description: PropTypes.string
+		description: PropTypes.string,
+		github: PropTypes.string // github url
 	}
 	render() {
+		const {name, description, github} = this.props;
+
 		return (
 			<header id="QWHeader">
 				<QWContainer>
-					<h1>{this.props.name}</h1>
-					<h2>{this.props.description}</h2>
+					<h1>{name}</h1>
+					<h2>{description}</h2>
 					<div>
-						<a>Github</a>
+						{github ?
+							<a href={github}>Github</a>
+						: null}
 					</div>
 				</QWContainer>
 			</header>
