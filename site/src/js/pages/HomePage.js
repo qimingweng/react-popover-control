@@ -9,6 +9,8 @@ import Popover from 'react-popover-control';
 require('react-popover-control/css/ReactPopoverControl.scss');
 require('../../css/HomePage.scss')
 
+const HomePageMarkdown = require('../markdown/HomePage.md');
+
 const exampleActions = [
 	{
 		title: 'Edit',
@@ -23,10 +25,6 @@ const exampleActions = [
 		}
 	}
 ];
-
-const HomePageMarkdown = require('../markdown/HomePage.md');
-
-// marked.parse(code, {renderer: customMarkedRenderer})
 
 export default class HomePage extends React.Component {
 	render() {
