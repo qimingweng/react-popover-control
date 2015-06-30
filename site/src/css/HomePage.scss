@@ -6,9 +6,22 @@
 			margin-bottom: 10px;
 		}
 
+		h1 {
+			font-size: 30px;
+			font-weight: 700;
+		}
+
+		section {
+			margin-bottom: 50px;
+		}
+
+		pre {
+			padding: 20px;
+			border-radius: 5px;
+		}
+
 		.popover-wrap {
 			text-align: center;
-			margin-bottom: 50px;
 
 			.demo-popover {
 				$length: 30px;

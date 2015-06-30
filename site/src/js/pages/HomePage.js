@@ -38,7 +38,7 @@ export default class HomePage extends React.Component {
 
 				<div id="main">
 					<QWContainer>
-						<div className="popover-wrap">
+						<section className="popover-wrap">
 							<h1>Try this example</h1>
 
 							<Popover actions={exampleActions} className="demo-popover">
@@ -46,7 +46,7 @@ export default class HomePage extends React.Component {
 			          	<span className="fa fa-angle-down"/>
 			          </a>
 							</Popover>
-						</div>
+						</section>
 
 						<div dangerouslySetInnerHTML={{
 							__html: marked.parse(HomePageMarkdown, {renderer: customMarkedRenderer})
