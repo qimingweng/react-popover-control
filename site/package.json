@@ -5,7 +5,9 @@
     "build-prod": "NODE_ENV=production webpack -p --progress"
   },
   "dependencies": {
+    "active-event-stack": "^1.0.0",
     "react": "^0.13.3",
+    "react-popover-control": "^0.1.0",
     "react-router": "^0.13.3"
   },
   "devDependencies": {

@@ -23,6 +23,7 @@
     "active-event-stack": "^1.0.0"
   },
   "scripts": {
+    "github": "./scripts/publishStaticSite.sh",
     "prepublish": "npm run build",
     "build": "rm -rf lib && babel src --out-dir lib"
   },
