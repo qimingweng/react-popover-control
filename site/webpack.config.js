@@ -23,7 +23,8 @@ module.exports = {
 		loaders: [
 			{test: /\.js$/, exclude: /node_modules/, loader: 'babel?stage=0'},
 			{test: /\.(png|jpg)$/, loader: 'url?limit=8096'},
-			{test: /\.scss$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')}
+			{test: /\.scss$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')},
+			{test: /\.md$/, loader: 'raw'}
 		]
 	},
 	resolve: {

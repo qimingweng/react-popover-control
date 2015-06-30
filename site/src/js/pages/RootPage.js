@@ -20,6 +20,7 @@ export default class RootPage extends React.Component {
 					<link rel="stylesheet" href="/style.css"/>
 
 					<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+					<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/monokai_sublime.min.css" rel="stylesheet"/>
 
 					<script src="//use.typekit.net/mak3sgg.js"></script>
 					<script>{`try{Typekit.load();}catch(e){}`}</script>

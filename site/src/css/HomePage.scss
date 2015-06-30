@@ -2,33 +2,40 @@
 	#main {
 		padding: 50px 0;
 
-		h1 {
+		h1, h2, li, p {
 			margin-bottom: 10px;
 		}
 
-		text-align: center;
+		.popover-wrap {
+			text-align: center;
+			margin-bottom: 50px;
 
-		.demo-popover {
-			$length: 30px;
-			font-size: 15px;
-			width: $length;
-			height: $length;
-			display: inline-block;
-			text-align: left;
-
-			.demo-popover-button {
-				display: block;
+			.demo-popover {
+				$length: 30px;
+				font-size: 15px;
 				width: $length;
 				height: $length;
-				line-height: $length;
-				font-size: 20px;
-				text-align: center;
-				border-radius: ($length/2);
-				color: white;
-				background-color: #5aa3dc;
+				display: inline-block;
+				text-align: left;
 
-				&:hover {text-decoration: none;}
+				.demo-popover-button {
+					display: block;
+					width: $length;
+					height: $length;
+					line-height: $length;
+					font-size: 20px;
+					text-align: center;
+					border-radius: ($length/2);
+					color: white;
+					background-color: #5aa3dc;
+
+					&:hover {text-decoration: none;}
+				}
 			}
+		}
+
+		li {
+			list-style: none;
 		}
 	}
 }
