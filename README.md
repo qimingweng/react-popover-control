@@ -1,5 +1,7 @@
 # React Popover Control
 
+[![npm](https://img.shields.io/npm/v/react-popover-control.svg?style=flat-square)](https://www.npmjs.com/package/react-popover-control)
+
 ## Download
 
 ```bash
