@@ -22968,7 +22968,7 @@ return /******/ (function(modules) { // webpackBootstrap
 							null,
 							'React Popover Control'
 						),
-						_react2['default'].createElement('link', { rel: 'stylesheet', href: '/style.css' }),
+						_react2['default'].createElement('link', { rel: 'stylesheet', href: 'style.css' }),
 						_react2['default'].createElement('link', { href: '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel: 'stylesheet' }),
 						_react2['default'].createElement('link', { href: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/monokai_sublime.min.css', rel: 'stylesheet' }),
 						_react2['default'].createElement('script', { src: '//use.typekit.net/mak3sgg.js' }),
@@ -22987,7 +22987,7 @@ return /******/ (function(modules) { // webpackBootstrap
 						_react2['default'].createElement('script', { id: 'initial-props',
 							type: 'application/json',
 							dangerouslySetInnerHTML: initialProps }),
-						_react2['default'].createElement('script', { src: '/bundle.js' })
+						_react2['default'].createElement('script', { src: 'bundle.js' })
 					)
 				);
 			}
