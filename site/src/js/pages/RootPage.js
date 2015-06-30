@@ -17,7 +17,7 @@ export default class RootPage extends React.Component {
 			<html>
 				<head>
 					<title>React Popover Control</title>
-					<link rel="stylesheet" href="/style.css"/>
+					<link rel="stylesheet" href="style.css"/>
 
 					<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
 					<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/monokai_sublime.min.css" rel="stylesheet"/>
@@ -33,7 +33,7 @@ export default class RootPage extends React.Component {
 					<script id="initial-props"
 						type="application/json"
 						dangerouslySetInnerHTML={initialProps}/>
-					<script src="/bundle.js"/>
+					<script src="bundle.js"/>
 				</body>
 			</html>
 		)
