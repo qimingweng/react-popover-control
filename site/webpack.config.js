@@ -26,6 +26,11 @@ module.exports = {
 			{test: /\.scss$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')}
 		]
 	},
+	resolve: {
+		alias: {
+			react: __dirname + '/node_modules/react'
+		}
+	},
 	devServer: {
 	  port: 9000
 	},

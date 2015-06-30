@@ -15,13 +15,12 @@
   ],
   "main": "lib/index.js",
   "dependencies": {
-    "classnames": "^2.1.0",
     "keycode": "^2.1.0",
-    "lodash": "^3.8.0",
-    "react-popover-control": "*"
+    "lodash": "^3.8.0"
   },
   "peerDependencies": {
-    "react": "^0.13.2"
+    "react": "^0.13.2",
+    "active-event-stack": "^1.0.0"
   },
   "scripts": {
     "prepublish": "npm run build",
