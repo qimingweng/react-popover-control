@@ -1,4 +1,6 @@
 #home-page {
+	$blue: #0096d6;
+
 	#main {
 		padding: 50px 0;
 
@@ -18,6 +20,12 @@
 		pre {
 			padding: 20px;
 			border-radius: 5px;
+		}
+
+		code {
+			padding: 0px 5px;
+			background-color: #f2f2f2;
+			color: $blue;
 		}
 
 		.popover-wrap {
@@ -40,7 +48,7 @@
 					text-align: center;
 					border-radius: ($length/2);
 					color: white;
-					background-color: #5aa3dc;
+					background-color: $blue;
 
 					&:hover {text-decoration: none;}
 				}

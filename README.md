@@ -39,6 +39,16 @@ class Page extends React.Component {
 }
 ```
 
+## Styling
+
+Default styles are included in `css/ReactPopoverControl.scss`.
+
+If you are using webpack with sass-loader, you can load the style in like this:
+
+```javascript
+require('react-popover-control/css/ReactPopoverControl.scss')
+```
+
 ## A good popover...
 
 - Flips when it is too low on screen
