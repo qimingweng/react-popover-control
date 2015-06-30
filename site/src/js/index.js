@@ -14,7 +14,7 @@ export default function(path, props, done) {
 }
 
 if (typeof document != 'undefined') {
-	Router.run(routes, Router.HistoryLocation, Handler => {
+	Router.run(routes, Router.HashLocation, Handler => {
 		React.render(<Handler/>, document);
 	});
 }
