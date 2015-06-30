@@ -86,10 +86,12 @@ class PopoverList extends React.Component {
       shouldHidePopover: PropTypes.func.isRequired,
       getPopoverReferenceFrame: PropTypes.func.isRequired
     }).isRequired,
-    margin: PropTypes.number.isRequired
+    windowMargin: PropTypes.number.isRequired,
+    launcherMargin: PropTypes.number.isRequired
   }
   static defaultProps = {
-    margin: 20
+    windowMargin: 20,
+    launcherMargin: 10
   }
   state = {
     offsetX: 0,
@@ -118,7 +120,7 @@ class PopoverList extends React.Component {
     this.props.delegate.shouldHidePopover();
   }
   render() {
-    const {margin, parentFrame, actions} = this.props;
+    const {windowMargin, launcherMargin, parentFrame, actions} = this.props;
     const {width, height} = this.state;
 
     const windowFrame = {
@@ -127,17 +129,17 @@ class PopoverList extends React.Component {
     };
 
     // State
-    let offsetY = parentFrame.height, 
+    let offsetY = parentFrame.height + launcherMargin, 
       offsetX = 0;
 
     // Flipping
-    if ((parentFrame.top + parentFrame.height + height + margin) > windowFrame.height) {
-      offsetY = -height;
+    if ((parentFrame.top + parentFrame.height + height + windowMargin + launcherMargin) > windowFrame.height) {
+      offsetY = 0 - height - launcherMargin;
     }
 
     // Offset X
-    if ((parentFrame.left + width + margin) > windowFrame.width)
-      offsetX = (windowFrame.width - width - margin) - parentFrame.left;
+    if ((parentFrame.left + width + windowMargin) > windowFrame.width)
+      offsetX = (windowFrame.width - width - windowMargin) - parentFrame.left;
 
     const style = {
       position: 'absolute',

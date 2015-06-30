@@ -5,6 +5,7 @@ import QWHeader from '../../commons/components/QWHeader';
 import Popover from 'react-popover-control';
 
 require('react-popover-control/css/ReactPopoverControl.scss');
+require('../../css/HomePage.scss')
 
 const exampleActions = [
 	{
@@ -29,11 +30,17 @@ export default class HomePage extends React.Component {
 					name="React Popover Control"
 					description="A simple, idiomatic popover control for React"/>
 
-				<QWContainer>
-					<Popover actions={exampleActions} className="popover">
-	          <span className="fa fa-angle-down"/>
-					</Popover>
-				</QWContainer>
+				<div id="main">
+					<QWContainer>
+						<h1>Try this example</h1>
+
+						<Popover actions={exampleActions} className="demo-popover">
+		          <a className="demo-popover-button">
+		          	<span className="fa fa-angle-down"/>
+		          </a>
+						</Popover>
+					</QWContainer>
+				</div>
 			</div>
 		)
 	}
