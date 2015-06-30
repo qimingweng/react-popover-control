@@ -35,7 +35,6 @@ export default class PopoverControl extends React.Component {
     this.setState({isPopped: !this.state.isPopped});
   }
   updateChildFrameInfo = () => {
-    console.log('updateChildFrameInfo');
     const {top, left, width, height} = React.findDOMNode(this).getBoundingClientRect();
     this.setState({top, left, width, height});
   }
