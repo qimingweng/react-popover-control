@@ -2,6 +2,10 @@
 
 [![npm](https://img.shields.io/npm/v/react-popover-control.svg?style=flat-square)](https://www.npmjs.com/package/react-popover-control)
 
+## Demo
+
+[Check out the demo](http://qimingweng.github.io/react-popover-control)
+
 ## Download
 
 ```bash
