@@ -1,3 +1,5 @@
+var path = require('path');
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StaticRenderWebpackPlugin = require('static-render-webpack-plugin');
 var webpack = require('webpack');
@@ -27,15 +29,23 @@ module.exports = {
 			{test: /\.md$/, loader: 'raw'}
 		]
 	},
+  resolveLoader: {
+    alias: {
+      babel: __dirname + '/node_modules/babel-loader'
+    }
+  },
 	resolve: {
 		alias: {
+      'react-popover-control$': path.join(__dirname, '../src/index.js'),
 			react: __dirname + '/node_modules/react'
 		}
 	},
 	devServer: {
-	  port: 9000
+	  port: 9000,
+    contentBase: './build'
 	},
-	devtool: IS_DEV ? 'cheap-module-source-map' : undefined,
+  devtool: 'sourcemap',
+	// devtool: IS_DEV ? 'cheap-module-source-map' : undefined,
 	postcss: function() {
 	  return [autoprefixer];
   },

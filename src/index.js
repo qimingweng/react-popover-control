@@ -2,6 +2,13 @@ import React, {PropTypes} from 'react';
 import {debounce, map} from 'lodash';
 import keycode from 'keycode';
 import EventStack from 'active-event-stack';
+let useSheet;
+
+if (typeof window === 'undefined') {
+  useSheet = x => x => x;
+} else {
+  useSheet = require('./useSheet');
+}
 
 const PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
   title: PropTypes.string.isRequired,
@@ -78,6 +85,29 @@ export default class PopoverControl extends React.Component {
   }
 }
 
+const PopoverListStyles = {
+  base: {
+  	backgroudColor: 'white',
+  	minWidth: 150,
+  	overflow: 'hidden',
+  	boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+  	borderRadius: 5
+  },
+  item: {
+    display: 'block',
+    height: 40,
+    lineHeight: 40,
+    padding: '0 10px',
+    color: '#1A2D36',
+    '&:hover': {
+      textDecoration: 'none',
+      color: '#1A2D36',
+      backgroundColor: '#e1f0f7',
+    }
+  }
+};
+
+@useSheet(PopoverListStyles)
 class PopoverList extends React.Component {
   static propTypes = {
     actions: PopoverActionsType.isRequired,
@@ -119,6 +149,7 @@ class PopoverList extends React.Component {
     this.props.delegate.shouldHidePopover();
   }
   render() {
+    const {props: {sheet: {classes}}} = this;
     const {windowMargin, launcherMargin, parentFrame, actions} = this.props;
     const {width, height} = this.state;
 
@@ -148,14 +179,15 @@ class PopoverList extends React.Component {
     };
 
     return (
-      <div style={style} ref="self" className="ReactPopoverList">
+      <div style={style} ref="self" className={classes.base}>
         {map(actions, (action, i) =>
           <a key={i}
-            onClick={this.onActionClick.bind(null, action)}>
+            onClick={this.onActionClick.bind(null, action)}
+            className={classes.item}>
             {action.title}
           </a>
         )}
       </div>
     )
   }
-}
+};

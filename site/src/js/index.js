@@ -5,6 +5,8 @@ import routes from './routes';
 require('../css/reset.scss');
 
 export default function(path, props, done) {
+	console.log(typeof global);
+
 	Router.run(routes, path, Handler => {
 		done(
 			'<!doctype html>' +

@@ -6,7 +6,7 @@ import marked from 'marked';
 import customMarkedRenderer from '../customMarkedRenderer';
 
 import Popover from 'react-popover-control';
-require('react-popover-control/css/ReactPopoverControl.scss');
+
 require('../../css/HomePage.scss')
 
 const HomePageMarkdown = require('../markdown/HomePage.md');
@@ -30,7 +30,7 @@ export default class HomePage extends React.Component {
 	render() {
 		return (
 			<div id="home-page">
-				<QWHeader 
+				<QWHeader
 					name="React Popover Control"
 					description="A simple, idiomatic popover control for React"
 					github="https://github.com/qimingweng/react-popover-control"/>
