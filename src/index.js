@@ -62,12 +62,12 @@ export default class PopoverControl extends React.Component {
     return (
       <div className={this.props.className}
         style={popoverControlStyle}>
-        <div ref='self' 
+        <div ref="self"
           onClick={this.onClick}>
           {this.props.children}
         </div>
         {this.state.isPopped ?
-          <PopoverList 
+          <PopoverList
             parentFrame={{top, left, width, height}}
             actions={this.props.actions}
             offsetY={this.props.offsetY}
@@ -128,7 +128,7 @@ class PopoverList extends React.Component {
     };
 
     // State
-    let offsetY = parentFrame.height + launcherMargin, 
+    let offsetY = parentFrame.height + launcherMargin,
       offsetX = 0;
 
     // Flipping
@@ -150,7 +150,7 @@ class PopoverList extends React.Component {
     return (
       <div style={style} ref="self" className="ReactPopoverList">
         {map(actions, (action, i) =>
-          <a key={i} 
+          <a key={i}
             onClick={this.onActionClick.bind(null, action)}>
             {action.title}
           </a>
