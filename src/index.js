@@ -2,8 +2,9 @@ import React, {PropTypes} from 'react';
 import {debounce, map} from 'lodash';
 import keycode from 'keycode';
 import EventStack from 'active-event-stack';
-let useSheet;
+import classNames from 'classnames';
 
+let useSheet;
 if (typeof window === 'undefined') {
   useSheet = x => x => x;
 } else {
@@ -15,10 +16,18 @@ const PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
   func: PropTypes.func
 }));
 
+const PopoverControlStyles = {
+  base: {
+    position: 'relative'
+  }
+};
+
+@useSheet(PopoverControlStyles)
 export default class PopoverControl extends React.Component {
   static propTypes = {
     actions: PopoverActionsType.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    sheet: PropTypes.object
   }
   state = {
     isPopped: false
@@ -60,17 +69,14 @@ export default class PopoverControl extends React.Component {
     window.removeEventListener('resize', this._debouncedScroll);
   }
   render = () => {
+    const {props: {sheet: {classes}}} = this;
     const {top, left, width, height} = this.state;
-
-    let popoverControlStyle = {
-      position: 'relative'
-    }
+    const className = classNames(this.props.className, classes.base)
 
     return (
-      <div className={this.props.className}
-        style={popoverControlStyle}>
-        <div ref="self"
-          onClick={this.onClick}>
+      <div {...this.props}
+        className={className}>
+        <div ref="self" onClick={this.onClick}>
           {this.props.children}
         </div>
         {this.state.isPopped ?
