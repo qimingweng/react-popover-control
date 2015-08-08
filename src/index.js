@@ -178,7 +178,7 @@ class PopoverList extends React.Component {
       top: 0,
       left: 0,
       transform: `translate(${offsetX}px, ${offsetY}px)`,
-      zIndex: this.props.zInex
+      zIndex: this.props.zIndex
     };
 
     return (
