@@ -62,13 +62,10 @@ export default class PopoverControl extends React.Component {
     window.removeEventListener('resize', this._debouncedScroll);
   }
   render = () => {
-    const {props: {sheet: {classes}}} = this;
     const {top, left, width, height} = this.state;
-    const className = classNames(this.props.className, classes.base)
 
     return (
-      <div {...this.props}
-        className={className}>
+      <div {...this.props}>
         <div ref="self" onClick={this.onClick}>
           {this.props.children}
         </div>
