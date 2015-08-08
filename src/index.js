@@ -16,13 +16,6 @@ const PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
   func: PropTypes.func
 }));
 
-const PopoverControlStyles = {
-  base: {
-    position: 'relative'
-  }
-};
-
-@useSheet(PopoverControlStyles)
 export default class PopoverControl extends React.Component {
   static propTypes = {
     actions: PopoverActionsType.isRequired,
@@ -61,11 +54,11 @@ export default class PopoverControl extends React.Component {
       }
     }, 100);
 
-    document.addEventListener('scroll', this._debouncedScroll, true);
+    document.addEventListener('scroll', this._debouncedScroll);
     window.addEventListener('resize', this._debouncedScroll);
   }
   componentWillUnmount = () => {
-    document.removeEventListener('scroll', this._debouncedScroll, true);
+    document.removeEventListener('scroll', this._debouncedScroll);
     window.removeEventListener('resize', this._debouncedScroll);
   }
   render = () => {
@@ -89,11 +82,11 @@ export default class PopoverControl extends React.Component {
       </div>
     )
   }
-}
+};
 
 const PopoverListStyles = {
   base: {
-  	backgroudColor: 'white',
+  	backgroundColor: 'white',
   	minWidth: 150,
   	overflow: 'hidden',
   	boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
@@ -122,13 +115,19 @@ class PopoverList extends React.Component {
       getPopoverReferenceFrame: PropTypes.func.isRequired
     }).isRequired,
     windowMargin: PropTypes.number.isRequired,
-    launcherMargin: PropTypes.number.isRequired
+    launcherMargin: PropTypes.number.isRequired,
+    zIndex: PropTypes.number.isRequired
   }
   static defaultProps = {
+    zIndex: 10,
     windowMargin: 20,
     launcherMargin: 10
   }
   state = {
+    top: null,
+    left: null,
+    width: null,
+    height: null,
     offsetX: 0,
     isFlipped: false, // usually bottom facing, but if true, then the popover should appear above
   }
@@ -139,8 +138,8 @@ class PopoverList extends React.Component {
     ]);
 
     // Once the element is in the dom, we can measure its height
-    const {width, height} = React.findDOMNode(this).getBoundingClientRect();
-    this.setState({width, height});
+    const {top, left, width, height} = React.findDOMNode(this).getBoundingClientRect();
+    this.setState({top, left, width, height});
   }
   componentWillUnmount() {
     EventStack.removeListenable(this.eventToken);
@@ -181,7 +180,8 @@ class PopoverList extends React.Component {
       position: 'absolute',
       top: 0,
       left: 0,
-      transform: `translate(${offsetX}px, ${offsetY}px)`
+      transform: `translate(${offsetX}px, ${offsetY}px)`,
+      zIndex: this.props.zInex
     };
 
     return (
