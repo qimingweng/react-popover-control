@@ -2,6 +2,14 @@ import React, {PropTypes} from 'react';
 import {debounce, map} from 'lodash';
 import keycode from 'keycode';
 import EventStack from 'active-event-stack';
+import classNames from 'classnames';
+
+let useSheet;
+if (typeof window === 'undefined') {
+  useSheet = x => x => x;
+} else {
+  useSheet = require('./useSheet');
+}
 
 const PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
   title: PropTypes.string.isRequired,
@@ -11,7 +19,8 @@ const PopoverActionsType = PropTypes.arrayOf(PropTypes.shape({
 export default class PopoverControl extends React.Component {
   static propTypes = {
     actions: PopoverActionsType.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    sheet: PropTypes.object
   }
   state = {
     isPopped: false
@@ -45,29 +54,23 @@ export default class PopoverControl extends React.Component {
       }
     }, 100);
 
-    document.addEventListener('scroll', this._debouncedScroll, true);
+    document.addEventListener('scroll', this._debouncedScroll);
     window.addEventListener('resize', this._debouncedScroll);
   }
   componentWillUnmount = () => {
-    document.removeEventListener('scroll', this._debouncedScroll, true);
+    document.removeEventListener('scroll', this._debouncedScroll);
     window.removeEventListener('resize', this._debouncedScroll);
   }
   render = () => {
     const {top, left, width, height} = this.state;
 
-    let popoverControlStyle = {
-      position: 'relative'
-    }
-
     return (
-      <div className={this.props.className}
-        style={popoverControlStyle}>
-        <div ref='self' 
-          onClick={this.onClick}>
+      <div {...this.props}>
+        <div ref="self" onClick={this.onClick}>
           {this.props.children}
         </div>
         {this.state.isPopped ?
-          <PopoverList 
+          <PopoverList
             parentFrame={{top, left, width, height}}
             actions={this.props.actions}
             offsetY={this.props.offsetY}
@@ -76,8 +79,31 @@ export default class PopoverControl extends React.Component {
       </div>
     )
   }
-}
+};
 
+const PopoverListStyles = {
+  base: {
+  	backgroundColor: 'white',
+  	minWidth: 150,
+  	overflow: 'hidden',
+  	boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+  	borderRadius: 5
+  },
+  item: {
+    display: 'block',
+    height: 40,
+    lineHeight: 40,
+    padding: '0 10px',
+    color: '#1A2D36',
+    '&:hover': {
+      textDecoration: 'none',
+      color: '#1A2D36',
+      backgroundColor: '#e1f0f7',
+    }
+  }
+};
+
+@useSheet(PopoverListStyles)
 class PopoverList extends React.Component {
   static propTypes = {
     actions: PopoverActionsType.isRequired,
@@ -86,13 +112,19 @@ class PopoverList extends React.Component {
       getPopoverReferenceFrame: PropTypes.func.isRequired
     }).isRequired,
     windowMargin: PropTypes.number.isRequired,
-    launcherMargin: PropTypes.number.isRequired
+    launcherMargin: PropTypes.number.isRequired,
+    zIndex: PropTypes.number.isRequired
   }
   static defaultProps = {
+    zIndex: 10,
     windowMargin: 20,
     launcherMargin: 10
   }
   state = {
+    top: null,
+    left: null,
+    width: null,
+    height: null,
     offsetX: 0,
     isFlipped: false, // usually bottom facing, but if true, then the popover should appear above
   }
@@ -103,8 +135,8 @@ class PopoverList extends React.Component {
     ]);
 
     // Once the element is in the dom, we can measure its height
-    const {width, height} = React.findDOMNode(this).getBoundingClientRect();
-    this.setState({width, height});
+    const {top, left, width, height} = React.findDOMNode(this).getBoundingClientRect();
+    this.setState({top, left, width, height});
   }
   componentWillUnmount() {
     EventStack.removeListenable(this.eventToken);
@@ -119,6 +151,7 @@ class PopoverList extends React.Component {
     this.props.delegate.shouldHidePopover();
   }
   render() {
+    const {props: {sheet: {classes}}} = this;
     const {windowMargin, launcherMargin, parentFrame, actions} = this.props;
     const {width, height} = this.state;
 
@@ -128,7 +161,7 @@ class PopoverList extends React.Component {
     };
 
     // State
-    let offsetY = parentFrame.height + launcherMargin, 
+    let offsetY = parentFrame.height + launcherMargin,
       offsetX = 0;
 
     // Flipping
@@ -144,18 +177,20 @@ class PopoverList extends React.Component {
       position: 'absolute',
       top: 0,
       left: 0,
-      transform: `translate(${offsetX}px, ${offsetY}px)`
+      transform: `translate(${offsetX}px, ${offsetY}px)`,
+      zIndex: this.props.zIndex
     };
 
     return (
-      <div style={style} ref="self" className="ReactPopoverList">
+      <div style={style} ref="self" className={classes.base}>
         {map(actions, (action, i) =>
-          <a key={i} 
-            onClick={this.onActionClick.bind(null, action)}>
+          <a key={i}
+            onClick={this.onActionClick.bind(null, action)}
+            className={classes.item}>
             {action.title}
           </a>
         )}
       </div>
     )
   }
-}
+};

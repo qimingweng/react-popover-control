@@ -17,17 +17,17 @@ npm install react-popover-control
 ```javascript
 import Popover from 'react-popover-control';
 
-actions = [
+const actions = [
   {
     title: 'Edit',
-    func: () => {
-      ...
+    func() {
+      // some action here
     }
   },
   {
     title: 'Delete',
-    func: () => {
-      ...
+    func() {
+      // some action here
     }
   }
 ];
@@ -35,23 +35,21 @@ actions = [
 class Page extends React.Component {
   render() {
     return (
-      <Popover actions={actions}>
-        <a>Click Here</a>
-      </Popover>
+      <div>
+        Some component...
+
+        <Popover actions={actions}>
+          <a>Click Here</a>
+        </Popover>
+      </div>
     )
   }
-}
+};
 ```
 
 ## Styling
 
-Default styles are included in `css/ReactPopoverControl.scss`.
-
-If you are using webpack with sass-loader, you can load the style in like this:
-
-```javascript
-require('react-popover-control/css/ReactPopoverControl.scss')
-```
+Default styles are included as jss, but you can opt out by... (TODO)
 
 ## A good popover...
 
